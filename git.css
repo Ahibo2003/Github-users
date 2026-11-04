@@ -1,0 +1,250 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 16px;
+  box-sizing: border-box;
+  background-color: #13223c;
+  font-family: 'Courier New', Courier, monospace;
+}
+.container{
+  box-sizing: border-box;
+  background-color: rgba(50, 16, 222, 0.911);
+  width: min(700px, 100%);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  color: aliceblue;
+}
+.container h1{
+  margin: 0;
+}
+#sun{
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.searcch{
+  width: min(700px, 100%);
+}
+@property --search-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+#ss{
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#366ece, #021a42) padding-box,
+    conic-gradient(
+      from var(--search-angle),
+      transparent 0deg 275deg,
+      #1a6bf6 315deg,
+      #d6ecff 340deg,
+      transparent 360deg
+    ) border-box;
+  margin: 16px 0 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  width: 100%;
+  padding: 6px;
+  box-shadow: 0 0 8px rgba(26, 107, 246, 0.4);
+  animation: search-border-spin 3s linear infinite;
+}
+#ss:focus-within {
+  border-color: #78aaff;
+  box-shadow: 0 0 18px rgba(26, 107, 246, 0.65);
+}
+@keyframes search-border-spin {
+  to {
+    --search-angle: 360deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #ss {
+    animation: none;
+  }
+}
+#searvch{
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;
+  object-fit: contain;
+}
+input{
+  box-sizing: border-box;
+  flex: 1;
+  min-width: 0;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #115ea6;
+  border-color: #021a42;
+  color: aliceblue;
+  
+}
+input::placeholder{
+  color: aliceblue;
+}
+button{
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #1a6bf6;
+  border-color: #021a42;
+  color: aliceblue;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+#search-status {
+  min-height: 1.25em;
+  margin: 8px 4px 0;
+  color: aliceblue;
+}
+
+.gitt{
+  color: aliceblue;
+  background-color: #1b3156;
+  box-sizing: border-box;
+  width: min(700px, calc(100vw - 32px));
+  padding: 24px;
+  border: 1px solid rgba(148, 183, 230, 0.25);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "avatar name name joined"
+    "avatar username username joined"
+    "bio bio bio bio"
+    "stats stats stats stats"
+    "map location twitter not"
+    "link website building company";
+  align-items: center;
+  gap: 12px 24px;
+  margin: 20px auto 0;
+}
+#ii{
+  grid-area: name;
+  margin: 0;
+}
+h4{
+  grid-area: username;
+  margin: 0;
+  color: #1a6bf6;
+}
+#git{
+  grid-area: avatar;
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  object-fit: cover;
+  border-radius: 50%;
+}
+#uou{
+  grid-area: joined;
+  margin: 0;
+  color: #f8f9fc;
+  white-space: nowrap;
+  font-size: smaller;
+}
+#hoho{
+  grid-area: bio;
+  margin: 0;
+  color: rgb(103, 115, 124);
+}
+.stats-box {
+  grid-area: stats;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background-color: #13223c;
+}
+.stats-box p {
+  margin: 0;
+  color: #8ea1a5;
+}
+.stats-box span {
+  display: block;
+  margin-top: 6px;
+  color: aliceblue;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+h5 {
+  margin: 0;
+  color: #8ea1a5;
+}
+#map {
+  grid-area: map;
+}
+.gitt > img:not(#git) {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+#map + h5 {
+  grid-area: location;
+}
+#twitter {
+  grid-area: twitter;
+}
+#not {
+  grid-area: not;
+}
+#link {
+  grid-area: link;
+}
+#ll {
+  grid-area: website;
+  overflow-wrap: anywhere;
+}
+#build {
+  grid-area: building;
+}
+#buil {
+  grid-area: company;
+}
+
+@media (max-width: 560px) {
+  .gitt {
+    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-areas:
+      "avatar name"
+      "avatar username"
+      "joined joined"
+      "bio bio"
+      "stats stats"
+      "map location"
+      "twitter not"
+      "link website"
+      "building company";
+    gap: 12px 16px;
+    padding: 18px;
+  }
+
+  #git {
+    width: 64px;
+    height: 64px;
+  }
+
+  #uou {
+    white-space: normal;
+  }
+
+  .stats-box {
+    padding: 12px;
+    gap: 8px;
+  }
+}
